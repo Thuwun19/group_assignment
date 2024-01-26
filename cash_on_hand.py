@@ -13,7 +13,7 @@ with fp.open(mode="r", encoding="UTF-8", newline="") as file:
 deficit_record = []
 increment_record = []
 max_increment_day = {"day": None, "amount": 0}
-current_coh = 0
+# current_coh = 0
 deficit_amount = 0
 deficit_day = None
 
