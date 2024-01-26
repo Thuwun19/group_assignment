@@ -8,8 +8,10 @@ with filepath.open(mode="r", encoding="UTF-8", newline="") as file:
     overheads_data = list(reader)
 
 
-def overheads(overheads_data):
+def overheads():
     highest_overhead_category = max(overheads_data)
     print(f"[HIGHEST OVERHEAD] {highest_overhead_category[0]}:{highest_overhead_category[1]}%")
 
-overheads(overheads_data)
+# overheads()
+
+# print(type(overheads()))
