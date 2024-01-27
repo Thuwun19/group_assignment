@@ -14,6 +14,7 @@ def pl():
     max_increment_day = {"day": None, "amount": 0}
     deficit_amount = 0
     deficit_day = None
+    calc = ""
 
     for i in range (1,len(pl_data)):
         day, netprofit = int(pl_data[i][0]), int(pl_data[i][4])
@@ -34,17 +35,17 @@ def pl():
     if increment_record and deficit_record:
         
         for deficit in deficit_record:
-            print(f"[NET PROFIT DEFICIT] DAY:{deficit['day']} AMOUNT:{deficit['amount']}")
-        print(f"[HIGHEST NET PROFIT DEFICIT] DAY:{max_deficit_day[0]['day']} AMOUNT:{max_deficit_day[0]['amount']}")
-        print(f"[2nd HIGHEST NET PROFIT DEFICIT] DAY:{max_deficit_day[1]['day']} AMOUNT:{max_deficit_day[1]['amount']}")
-        print(f"[3rd HIGHEST NET PROFIT DEFICIT] DAY:{max_deficit_day[2]['day']} AMOUNT:{max_deficit_day[2]['amount']}")
+            calc+=(f"[NET PROFIT DEFICIT] DAY:{deficit['day']} AMOUNT:{deficit['amount']}\n")
+        calc+=(f"[HIGHEST NET PROFIT DEFICIT] DAY:{max_deficit_day[0]['day']} AMOUNT:{max_deficit_day[0]['amount']}\n")
+        calc+=(f"[2nd HIGHEST NET PROFIT DEFICIT] DAY:{max_deficit_day[1]['day']} AMOUNT:{max_deficit_day[1]['amount']}\n")
+        calc+=(f"[3rd HIGHEST NET PROFIT DEFICIT] DAY:{max_deficit_day[2]['day']} AMOUNT:{max_deficit_day[2]['amount']}\n")
         
     elif increment_record:
-        print("[NET PROFIT SURPLUS] NET PROFIT ON EACH DAY IS HIGHER THAN THE PREVIOUS DAY")     
-        print(f"[HIGHEST NET PROFIT SURPLUS] DAY:{max_increment_day['day']} AMOUNT:{max_increment_day['amount']}")
+        calc+=("[NET PROFIT SURPLUS] NET PROFIT ON EACH DAY IS HIGHER THAN THE PREVIOUS DAY\n")     
+        calc+=(f"[HIGHEST NET PROFIT SURPLUS] DAY:{max_increment_day['day']} AMOUNT:{max_increment_day['amount']}\n")
     elif deficit_record:
-        print("[NET PROFIT DEFICIT] NET PROFIT ON EACH DAY IS LOWER THAN THE PREVIOUS DAY")     
-        print(f"[HIGHEST CASH DEFICIT] DAY:{max_deficit_day[0]['day']} AMOUNT:{max_deficit_day[0]['amount']}")
+        calc+=("[NET PROFIT DEFICIT] NET PROFIT ON EACH DAY IS LOWER THAN THE PREVIOUS DAY\n")     
+        calc+=(f"[HIGHEST CASH DEFICIT] DAY:{max_deficit_day[0]['day']} AMOUNT:{max_deficit_day[0]['amount']}\n")
             
-
-pl()
+    return calc
+# print(pl())

@@ -22,6 +22,7 @@ def coh():
         day, coh = int(coh_data[i][0]), int(coh_data[i][1])
         prev_coh = int(coh_data[i - 1][1])#if calculation wrong try again with + not -
         cash_difference = coh-prev_coh
+        coh_output = ""
 
 
         if cash_difference > 0:
@@ -37,19 +38,16 @@ def coh():
     if increment_record and deficit_record:
         
         for deficit in deficit_record:
-            print(f"[CASH DEFICIT] DAY:{deficit['day']} AMOUNT:{deficit['amount']}")
-        print(f"[HIGHEST CASH DEFICIT] DAY:{max_deficit_day[0]['day']} AMOUNT:{max_deficit_day[0]['amount']}")
-        print(f"[2nd HIGHEST CASH DEFICIT] DAY:{max_deficit_day[1]['day']} AMOUNT:{max_deficit_day[1]['amount']}")
-        print(f"[3rd HIGHEST CASH DEFICIT] DAY:{max_deficit_day[2]['day']} AMOUNT:{max_deficit_day[2]['amount']}")
+            coh_output+=(f"[CASH DEFICIT] DAY:{deficit['day']} AMOUNT:{deficit['amount']}\n")
+        coh_output+=(f"[HIGHEST CASH DEFICIT] DAY:{max_deficit_day[0]['day']} AMOUNT:{max_deficit_day[0]['amount']}\n")
+        coh_output+=(f"[2nd HIGHEST CASH DEFICIT] DAY:{max_deficit_day[1]['day']} AMOUNT:{max_deficit_day[1]['amount']}\n")
+        coh_output+=(f"[3rd HIGHEST CASH DEFICIT] DAY:{max_deficit_day[2]['day']} AMOUNT:{max_deficit_day[2]['amount']}\n")
         
     elif increment_record:
-        print("[CASH SURPLUS] CASH ON EACH DAY IS HIGHER THAN THE PREVIOUS DAY")     
-        print(f"[HIGHEST CASH SURPLUS] DAY:{max_increment_day['day']} AMOUNT:{max_increment_day['amount']}")
+        coh_output+=("[CASH SURPLUS] CASH ON EACH DAY IS HIGHER THAN THE PREVIOUS DAY\n")     
+        coh_output+=(f"[HIGHEST CASH SURPLUS] DAY:{max_increment_day['day']} AMOUNT:{max_increment_day['amount']}\n")
     elif deficit_record:
-        print("[CASH DEFICIT] CASH ON EACH DAY IS LOWER THAN THE PREVIOUS DAY")     
-        print(f"[HIGHEST CASH DEFICIT] DAY:{max_deficit_day[0]['day']} AMOUNT:{max_deficit_day[0]['amount']}")
+        coh_output+=("[CASH DEFICIT] CASH ON EACH DAY IS LOWER THAN THE PREVIOUS DAY\n")     
+        coh_output+=(f"[HIGHEST CASH DEFICIT] DAY:{max_deficit_day[0]['day']} AMOUNT:{max_deficit_day[0]['amount']}\n")
             
-
-
-
-coh()
+    return coh_output
