@@ -50,7 +50,7 @@ def overheads():
     # print(highest_category_percentage)
   
 
-    overheads_output = (f"[HIGHEST OVERHEAD] {highest_overhead_category}:{round(highest_category_percentage,2)}%\n")
+    overheads_output = (f"[HIGHEST OVERHEAD] {highest_overhead_category}:{round(highest_category_percentage,2)}%")
     return overheads_output
             
 # print(str(each_category))
