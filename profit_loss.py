@@ -35,17 +35,17 @@ def pl():
     if increment_record and deficit_record:
         
         for deficit in deficit_record:
-            calc+=(f"[NET PROFIT DEFICIT] DAY:{deficit['day']} AMOUNT:{deficit['amount']}\n")
-        calc+=(f"[HIGHEST NET PROFIT DEFICIT] DAY:{max_deficit_day[0]['day']} AMOUNT:{max_deficit_day[0]['amount']}\n")
-        calc+=(f"[2nd HIGHEST NET PROFIT DEFICIT] DAY:{max_deficit_day[1]['day']} AMOUNT:{max_deficit_day[1]['amount']}\n")
-        calc+=(f"[3rd HIGHEST NET PROFIT DEFICIT] DAY:{max_deficit_day[2]['day']} AMOUNT:{max_deficit_day[2]['amount']}\n")
+            calc+=(f"[NET PROFIT DEFICIT] DAY:{deficit['day']} AMOUNT:USD{abs(deficit['amount'])}\n")
+        calc+=(f"[HIGHEST NET PROFIT DEFICIT] DAY:{max_deficit_day[0]['day']} AMOUNT:USD{abs(max_deficit_day[0]['amount'])}\n")
+        calc+=(f"[2nd HIGHEST NET PROFIT DEFICIT] DAY:{max_deficit_day[1]['day']} AMOUNT:USD{abs(max_deficit_day[1]['amount'])}\n")
+        calc+=(f"[3rd HIGHEST NET PROFIT DEFICIT] DAY:{max_deficit_day[2]['day']} AMOUNT:USD{abs(max_deficit_day[2]['amount'])}\n")
         
     elif increment_record:
         calc+=("[NET PROFIT SURPLUS] NET PROFIT ON EACH DAY IS HIGHER THAN THE PREVIOUS DAY\n")     
-        calc+=(f"[HIGHEST NET PROFIT SURPLUS] DAY:{max_increment_day['day']} AMOUNT:{max_increment_day['amount']}\n")
+        calc+=(f"[HIGHEST NET PROFIT SURPLUS] DAY:{max_increment_day['day']} AMOUNT:USD{abs(max_increment_day['amount'])}\n")
     elif deficit_record:
         calc+=("[NET PROFIT DEFICIT] NET PROFIT ON EACH DAY IS LOWER THAN THE PREVIOUS DAY\n")     
-        calc+=(f"[HIGHEST CASH DEFICIT] DAY:{max_deficit_day[0]['day']} AMOUNT:{max_deficit_day[0]['amount']}\n")
+        calc+=(f"[HIGHEST CASH DEFICIT] DAY:{max_deficit_day[0]['day']} AMOUNT:USD{abs(max_deficit_day[0]['amount'])}\n")
             
     return calc
-# print(pl())
+print(pl())

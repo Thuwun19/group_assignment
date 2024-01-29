@@ -14,8 +14,8 @@ def coh():
     increment_record = []
     max_increment_day = {"day": None, "amount": 0}
     # current_coh = 0
-    deficit_amount = 0
-    deficit_day = None
+   
+    
 
 
     for i in range (1,len(coh_data)):
@@ -38,16 +38,17 @@ def coh():
     if increment_record and deficit_record:
         
         for deficit in deficit_record:
-            coh_output+=(f"[CASH DEFICIT] DAY:{deficit['day']} AMOUNT:{deficit['amount']}\n")
-        coh_output+=(f"[HIGHEST CASH DEFICIT] DAY:{max_deficit_day[0]['day']} AMOUNT:{max_deficit_day[0]['amount']}\n")
-        coh_output+=(f"[2nd HIGHEST CASH DEFICIT] DAY:{max_deficit_day[1]['day']} AMOUNT:{max_deficit_day[1]['amount']}\n")
-        coh_output+=(f"[3rd HIGHEST CASH DEFICIT] DAY:{max_deficit_day[2]['day']} AMOUNT:{max_deficit_day[2]['amount']}\n")
+            coh_output+=(f"[CASH DEFICIT] DAY:{deficit['day']} AMOUNT:USD{abs(deficit['amount'])}\n")
+        coh_output+=(f"[HIGHEST CASH DEFICIT] DAY:{max_deficit_day[0]['day']} AMOUNT:USD{abs(max_deficit_day[0]['amount'])}\n")
+        coh_output+=(f"[2nd HIGHEST CASH DEFICIT] DAY:{max_deficit_day[1]['day']} AMOUNT:USD{abs(max_deficit_day[1]['amount'])}\n")
+        coh_output+=(f"[3rd HIGHEST CASH DEFICIT] DAY:{max_deficit_day[2]['day']} AMOUNT:USD{abs(max_deficit_day[2]['amount'])}\n")
         
     elif increment_record:
         coh_output+=("[CASH SURPLUS] CASH ON EACH DAY IS HIGHER THAN THE PREVIOUS DAY\n")     
-        coh_output+=(f"[HIGHEST CASH SURPLUS] DAY:{max_increment_day['day']} AMOUNT:{max_increment_day['amount']}\n")
+        coh_output+=(f"[HIGHEST CASH SURPLUS] DAY:{max_increment_day['day']} AMOUNT: USD{abs(max_increment_day['amount'])}\n")
     elif deficit_record:
         coh_output+=("[CASH DEFICIT] CASH ON EACH DAY IS LOWER THAN THE PREVIOUS DAY\n")     
-        coh_output+=(f"[HIGHEST CASH DEFICIT] DAY:{max_deficit_day[0]['day']} AMOUNT:{max_deficit_day[0]['amount']}\n")
+        coh_output+=(f"[HIGHEST CASH DEFICIT] DAY:{max_deficit_day[0]['day']} AMOUNT:USD{abs(max_deficit_day[0]['amount'])}\n")
             
     return coh_output
+
