@@ -27,19 +27,17 @@ def overheads():
             each_category[Items]["Amount"] += Amount
             total_amount += Amount    
 
-    
-
 
 
   
    
-#     highest_overhead_category = max(each_category)
+    highest_overhead_category = max(each_category)
 
-#     highest_category_percentage= (each_category[highest_overhead_category]["Amount"])/ (total_amount) * 100
+    highest_category_percentage= (each_category[highest_overhead_category]["Amount"])/ (total_amount) * 100
     
 
-#     overheads_output = (f"[HIGHEST OVERHEAD] {highest_overhead_category}:{round(highest_category_percentage,2)}%\n")
-#     return overheads_output
+    overheads_output = (f"[HIGHEST OVERHEAD] {highest_overhead_category}:{round(highest_category_percentage,2)}%\n")
+    return overheads_output
             
 
 
