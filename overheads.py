@@ -1,31 +1,31 @@
 import csv
 from pathlib import Path
 ##JAVIER
-# filepath = Path.cwd()/"csv_reports"/"Overheads.csv"
-# with filepath.open(mode="r", encoding="UTF-8", newline="") as file:
-#     reader = csv.reader(file)
-#     next(reader)
-#     overheads_data = list(reader)
+filepath = Path.cwd()/"csv_reports"/"Overheads.csv"
+with filepath.open(mode="r", encoding="UTF-8", newline="") as file:
+    reader = csv.reader(file)
+    next(reader)
+    overheads_data = list(reader)
 
 
 
 
-# def overheads():
-#     each_category = {}
-#     total_amount = 0
+def overheads():
+    each_category = {}
+    total_amount = 0
 
-#     for x in overheads_data:
-#         Items, Amount = x
-#         Amount = float(Amount)  # Convert Amount to a numeric type
+    for x in overheads_data:
+        Items, Amount = x
+        Amount = float(Amount)  # Convert Amount to a numeric type
            
     
-#         if Items not in each_category:
-#             each_category[Items] = {"Amount": Amount}
-#             total_amount += Amount    
+        if Items not in each_category:
+            each_category[Items] = {"Amount": Amount}
+            total_amount += Amount    
 
-#         else:
-#             each_category[Items]["Amount"] += Amount
-#             total_amount += Amount    
+        else:
+            each_category[Items]["Amount"] += Amount
+            total_amount += Amount    
 
     
 
