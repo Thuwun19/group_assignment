@@ -1,6 +1,6 @@
 import csv
 from pathlib import Path
-##JAVIER
+
 filepath = Path.cwd()/"csv_reports"/"Overheads.csv"
 with filepath.open(mode="r", encoding="UTF-8", newline="") as file:
     reader = csv.reader(file)

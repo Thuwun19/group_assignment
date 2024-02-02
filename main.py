@@ -1,7 +1,7 @@
 import cash_on_hand,overheads,profit_loss
 from pathlib import Path
 import csv
-##NICOLE
+
 def main():
    
     output_file_path = Path.cwd() /"summary_report.txt"
